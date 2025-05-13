@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA to Protein Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>DNA to Protein Simulator</h1>
+        
+        <div class="input-section">
+            <label for="dnaInput">Enter DNA Sequence:</label>
+            <input type="text" id="dnaInput" placeholder="e.g., ATGCGT..." pattern="[ATCGatcg]*">
+            <div class="buttons">
+                <button id="startBtn">Start Simulation</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="transcription">Transcription</button>
+            <button class="tab-btn" data-tab="translation">Translation</button>
+        </div>
+
+        <div class="simulation-area">
+            <div id="transcription" class="tab-content active">
+                <h2>Transcription Process</h2>
+                <div class="animation-container">
+                    <div class="process-step">
+                        <h3>DNA Template Strand</h3>
+                        <div id="dna-strand" class="strand"></div>
+                    </div>
+                    <div id="rna-polymerase" class="enzyme"></div>
+                    <div class="process-step">
+                        <h3>mRNA Product</h3>
+                        <div id="mrna-strand" class="strand"></div>
+                    </div>
+                </div>
+                <div class="result-box">
+                    <h3>Final mRNA Sequence:</h3>
+                    <p id="mrnaResult" class="result-text"></p>
+                </div>
+            </div>
+
+            <div id="translation" class="tab-content">
+                <h2>Translation Process</h2>
+                <div class="animation-container">
+                    <div class="process-step">
+                        <h3>mRNA Template</h3>
+                        <div id="mrna-template" class="strand"></div>
+                    </div>
+                    <div id="ribosome" class="enzyme"></div>
+                    <div class="process-step">
+                        <h3>Growing Protein Chain</h3>
+                        <div id="protein-chain" class="protein-display"></div>
+                    </div>
+                </div>
+                <div class="result-box">
+                    <h3>Final Protein Sequence:</h3>
+                    <p id="proteinResult" class="result-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tooltip-container">
+            <div class="tooltip-content"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
